@@ -18,12 +18,13 @@ class ProfilesController < ApplicationController
     if @profile.nil?
       flash[:notice] = "User doesn't exists"
       redirect_to '/'
-    end
-    store_location
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @profile }
-    end    
+    else
+      store_location
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @profile }
+      end 
+    end   
   end
   
 end
