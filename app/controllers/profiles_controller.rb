@@ -14,7 +14,11 @@ class ProfilesController < ApplicationController
   end
   
   def show
-    @profile = Profile.active.find(params[:id])
+    @profile = Profile.active.find(params[:id]) rescue nil
+    if @profile.nil?
+      flash[:notice] = "User doesn't exists"
+      redirect_to '/'
+    end
     store_location
     respond_to do |format|
       format.html # index.html.erb

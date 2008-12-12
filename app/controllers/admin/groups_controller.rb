@@ -1,5 +1,5 @@
 class Admin::GroupsController < Admin::BaseController
-
+  before_filter :neglect_group
   def index
     @order = params[:order] || 'name'
     @page = params[:page] || '1'
@@ -34,5 +34,13 @@ class Admin::GroupsController < Admin::BaseController
       end
     end
   end
+  
+  private ########################
+  
+    
+    def neglect_group
+      flash[:error] = "Page not found"
+      redirect_to '/'
+    end
 
 end

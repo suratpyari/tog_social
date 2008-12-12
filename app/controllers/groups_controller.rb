@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  
+  before_filter :neglect_group
   before_filter :login_required, :only => [:join, :leave]   
   before_filter :load_group, :only => [:show, :join, :leave, :members, :invite_accept, :invite_reject] 
       
@@ -106,5 +106,10 @@ class GroupsController < ApplicationController
           :content  => body)
         message.dispatch!   
       end      
+    end
+    
+    def neglect_group
+      flash[:error] = "Page not found"
+      redirect_to '/'
     end
 end

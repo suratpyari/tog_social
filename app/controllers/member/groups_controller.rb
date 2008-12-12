@@ -1,5 +1,5 @@
 class Member::GroupsController < Member::BaseController
-
+    before_filter :neglect_group
   before_filter :find_group, :except => [:index, :new, :create]
   before_filter :check_moderator, :except => [:index, :new, :create]
 
@@ -89,5 +89,10 @@ class Member::GroupsController < Member::BaseController
       redirect_to groups_path(@group)
     end
   end
+    
+    def neglect_group
+      flash[:error] = "Page not found"
+      redirect_to '/'
+    end
 
 end
