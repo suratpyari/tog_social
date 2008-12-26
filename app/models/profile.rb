@@ -18,10 +18,10 @@ class Profile < ActiveRecord::Base
 
   file_column :icon, :root_path => File.join(RAILS_ROOT, "public/system/profile"), :web_root => 'system/profile/', :magick => {
     :versions => {
-      :big    => {:crop => "1:1", :size => Tog::Config["plugins.tog_social.profile.image.versions.big"],    :name => "big"},
-      :medium => {:crop => "1:1", :size => Tog::Config["plugins.tog_social.profile.image.versions.medium"], :name => "medium"},
-      :small  => {:crop => "1:1", :size => Tog::Config["plugins.tog_social.profile.image.versions.small"],  :name => "small"},
-      :tiny   => {:crop => "1:1", :size => Tog::Config["plugins.tog_social.profile.image.versions.tiny"],   :name => "tiny"}
+      :big    => {:size => Tog::Config["plugins.tog_social.profile.image.versions.big"],    :name => "big"},
+      :medium => {:size => Tog::Config["plugins.tog_social.profile.image.versions.medium"], :name => "medium"},
+      :small  => {:size => Tog::Config["plugins.tog_social.profile.image.versions.small"],  :name => "small"},
+      :tiny   => {:size => Tog::Config["plugins.tog_social.profile.image.versions.tiny"],   :name => "tiny"}
     }
   }
   record_activity_of :user
