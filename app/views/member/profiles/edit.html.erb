@@ -8,15 +8,27 @@
     <div class="fields">
       <p>
         <label for="profile_first_name">First name</label>
-        <%= f.text_field :first_name, :class=>"fieldbox" %>
+        <%= f.text_field :first_name, :class=>"fieldbox wide" %>
       </p>
       <p>
         <label for="profile_last_name">Last name</label>
-        <%= f.text_field :last_name, :class=>"fieldbox" %>
+        <%= f.text_field :last_name, :class=>"fieldbox wide" %>
+      </p>
+      <p>
+        <label for="profile_location">Location</label>
+        <%= f.text_field :location, :class=>"fieldbox wide" %>
+      </p>
+      <p>
+        <label for="profile_about">About</label>
+        <%= f.text_area :about, :class=>"fieldbox wide", :rows => 5  %>
       </p>
       <p>
         <label for="profile_website">Website</label>
-        <%= f.text_field :website, :class=>"fieldbox wide" %>
+        <%= f.text_field :website, :class=>"fieldbox wide"%>
+      </p>
+      <p>
+        <label for="profile_blog">Blog</label>
+        <%= f.text_field :blog, :class=>"fieldbox wide" %>
       </p>
       <p>
         <label for="profile_icon">Avatar</label>
